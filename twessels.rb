@@ -2,8 +2,8 @@
 
 dep 'twessels' do
 	requires 'homebrew'
-	requires 'all-packaged-apps'
+	requires 'all-tools'
 	requires 'all-osx-apps'
 	requires 'all-osx-settings'
-	requires 'all-work'
+	requires 'work-setup'
 end

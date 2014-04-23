@@ -12,12 +12,22 @@ dep 'get-core-repo' do
 		File.directory?('/Users/twessels/work/core')
 	}
 	meet {
-		shell("git clone https://twessels@bitbucket.org/channeliq/core.git")	
+		shell("git clone git@bitbucket.org:channeliq/core.git")
 	}
 end
 
-dep 'all-work' do
+dep 'get-internal-tools-repo' do
+	met? {
+		File.directory?('/Users/twessels/work/internal-tools')
+	}
+	meet {
+		shell("git clone git@bitbucket.org:channeliq/internal-tools.git /Users/twessels/work/internal-tools")
+	}
+end
+
+dep 'work-setup' do
 	requires 'create-work-dir'
 	requires 'get-core-repo'
+	requires 'get-internal-tools-repo'
 end
 
