@@ -72,6 +72,21 @@ dep "ruby-1.9.3" do
 	}
 end
 
+# HACK to get around 403 error when downloading
+dep 'vagrant' do 
+	met? {
+		"/Applications/Vagrant".p.exist?	
+	}
+	meet {
+		shell("wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.4.dmg")
+		shell("hdiutil mount vagrant_1.5.4.dmg")
+		sudo('installer -package "/Volumes/Vagrant/Vagrant.pkg" -target "/Volumes/Macintosh HD"')
+		shell('hdiutil unmount "/Volumes/Vagrant/"')
+		shell("mv vagrant_1.5.4.dmg ../downloads/vagrant_1.5.4.dmg")
+	}
+
+end
+
 dep "all-tools" do
 	requires "git.managed"
 	requires "groovy.bin"
@@ -84,4 +99,5 @@ dep "all-tools" do
 	requires "gradle.bin"
 	requires "rvm"
 	requires "ruby-1.9.3"
+	requires "vagrant"
 end
