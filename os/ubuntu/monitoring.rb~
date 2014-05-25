@@ -1,0 +1,7 @@
+dep "strace.managed"
+    installs "strace"
+end
+
+dep "ubuntu-monitoring"
+    requires "strace.managed"
+end
