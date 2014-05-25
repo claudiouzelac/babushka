@@ -1,4 +1,3 @@
 dep "shenderson-ubuntu" do
-    requires "ubuntu-monitoring",
-	     "dev-ubuntu"
+    requires "ubuntu-monitoring"
 end
