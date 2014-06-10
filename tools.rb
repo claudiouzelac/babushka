@@ -36,7 +36,7 @@ dep "eclipse" do
 	}
 	meet {
 		shell("brew install wget")
-		shell("wget -O eclipse-jee-kepler-SR2-macosx-cocoa-x86_64.tar.gz 'https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/SR2/eclipse-jee-kepler-SR2-macosx-cocoa-x86_64.tar.gz&r=1'") 
+		shell("wget -O eclipse-jee-kepler-SR2-macosx-cocoa-x86_64.tar.gz 'https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/SR2/eclipse-jee-kepler-SR2-macosx-cocoa-x86_64.tar.gz&r=1'")
 		shell("tar -xzf eclipse-jee-kepler-SR2-macosx-cocoa-x86_64.tar.gz")
 		shell("mv eclipse /Applications")
 	}
@@ -44,7 +44,7 @@ end
 
 dep "tomcat" do
 	met? {
-		"/usr/local/tomcat".p.exist?	
+		"/usr/local/tomcat".p.exist?
 	}
 	meet {
 		shell("wget http://www.motorlogy.com/apache/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.tar.gz")
@@ -55,7 +55,7 @@ end
 
 dep "rvm" do
 	met? {
-		"/Users/twessels/.rvm".p.exist?	
+		"/Users/twessels/.rvm".p.exist?
 	}
 	meet {
 		shell("curl -sSL https://get.rvm.io | bash -s stable")
@@ -67,22 +67,22 @@ dep "ruby-1.9.3" do
 		shell("rvm list strings").include? "1.9.3"
 	}
 	meet {
-		shell("rvm install 1.9.3") 
+		shell("rvm install 1.9.3")
 		shell("rvm use 1.9.3")
 	}
 end
 
 # HACK to get around 403 error when downloading
-dep 'vagrant' do 
+dep 'vagrant' do
 	met? {
-		"/Applications/Vagrant".p.exist?	
+		"/Applications/Vagrant".p.exist?
 	}
 	meet {
-		shell("wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.4.dmg")
-		shell("hdiutil mount vagrant_1.5.4.dmg")
+		shell("wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3.dmg")
+		shell("hdiutil mount vagrant_1.6.3.dmg")
 		sudo('installer -package "/Volumes/Vagrant/Vagrant.pkg" -target "/Volumes/Macintosh HD"')
 		shell('hdiutil unmount "/Volumes/Vagrant/"')
-		shell("mv vagrant_1.5.4.dmg ../downloads/vagrant_1.5.4.dmg")
+		shell("mv vagrant_1.6.3.dmg ../downloads/vagrant_1.6.3.dmg")
 	}
 
 end
