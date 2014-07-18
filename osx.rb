@@ -37,7 +37,7 @@ dep 'show-hard-drives-on-desktop' do
 	}
 end
 
-dep 'all-osx-settings' do
+dep 'osx' do
 	requires 'show-all-files-in-folder'
 	requires 'auto-hide-dock'
 	requires 'show-only-active-apps'
