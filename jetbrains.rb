@@ -18,10 +18,15 @@ dep "WebStorm.app" do
   source "http://download-cf.jetbrains.com/webstorm/WebStorm-8.0.4.dmg"
 end
 
+dep "0xDBE EAP.app" do
+  source "http://download-cf.jetbrains.com/dbe/0xdbe-138.551.dmg"
+end
+
 dep "jetbrains" do
   requires "Clion.app",
            "IntelliJ.app",
            "PyCharm.app",
            "RubyMine.app",
-           "WebStorm.app"
+           "WebStorm.app",
+           "0xDBE EAP.app"
 end
