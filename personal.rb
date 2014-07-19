@@ -1,8 +1,11 @@
-dep 'working_copies' do
-  met? {
-    (ENV['HOME'] / "dev").dir?
-  }
-  meet {
-    log_shell "Make ~/dev", 'mkdir ~/dev'
-  }
+dep "shenderson" do
+  requires "environment",
+           "taps",
+           "dev",
+           "devops",
+           "design",
+           "jetbrains",
+           "comm",
+           "apps",
+           "osx"
 end

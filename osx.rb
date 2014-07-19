@@ -38,8 +38,8 @@ dep 'show-hard-drives-on-desktop' do
 end
 
 dep 'osx' do
-	requires 'show-all-files-in-folder'
-	requires 'auto-hide-dock'
-	requires 'show-only-active-apps'
-	requires 'show-hard-drives-on-desktop'
+	requires 'show-all-files-in-folder',
+	 				 'auto-hide-dock',
+	 				 'show-only-active-apps',
+	 				 'show-hard-drives-on-desktop'
 end

@@ -47,3 +47,73 @@ function __setprompt {
   PS4='$BLUE+$NO_COLOUR '
 }
 __setprompt
+
+
+export PATH=$(brew --prefix ruby)/bin:$PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
+export PATH="$PATH":~/depot_tools
+export PATH="$PATH":~/gyp
+export PATH="$PATH":~/google-styleguide
+export PATH="$PATH":~/bin
+export PATH=/usr/local/bin:$PATH
+export CXX="`which clang++` -std=c++11 -stdlib=libc++"
+export LINK="`which clang++` -std=c++11 -stdlib=libc++"
+export GYP_DEFINES="clang=1 mac_deployment_target=10.8"
+
+alias c='clear'
+alias h='history -w && history -c'
+alias hist='history'
+
+alias cheftests='cd ~/dev && rspec internal-tools/chef-repo/cookbooks/'
+alias cheflint='cd ~/dev && foodcritic internal-tools/chef-repo/cookbooks/'
+
+alias gr='git reset --hard && git clean -f -d'
+alias gu='git pull && git submodule foreach git pull origin master'
+alias gs='git status'
+alias gdiff='git diff'
+alias rdis='redis-server /usr/local/etc/redis.conf'
+
+function gbase() {
+	git rebase master
+}
+
+alias dev='cd ~/dev'
+
+alias bu='brew update && brew doctor'
+
+alias l='ls -ltra'
+
+alias gso='git submodule foreach git pull origin master'
+
+alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+alias c='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.cassandra.plist'
+
+alias mc='mvn clean compile test'
+alias bh='./setup.sh && env/bin/activate && behave'
+
+alias devdb='172.16.110.129'
+alias qadb='172.16.10.71'
+
+function sshTo() {
+	ssh ubuntu@$1
+}
+
+function clearKeys() {
+	ssh-add -D
+}
+
+function loadDevKeys() {
+	sudo ssh-add ~/Dropbox/ssh/dev/*
+}
+
+function loadQaKeys() {
+	sudo ssh-add ~/Dropbox/ssh/qa/*
+}
+
+function loadProdKeys() {
+	sudo ssh-add ~/Dropbox/ssh/prod/*
+}
+
+function tailthis() {
+	tail -f $1
+}

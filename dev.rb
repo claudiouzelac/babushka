@@ -28,11 +28,25 @@ dep "depot_tools" do
   Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
 end
 
+dep 'Atom.app' do
+  source 'https://github.com/atom/atom/releases/download/v0.115.0/atom-mac.zip'
+end
+
+dep 'working_copies' do
+  met? {
+    (ENV['HOME'] / "dev").dir?
+  }
+  meet {
+    log_shell "Make ~/dev", 'mkdir ~/dev'
+  }
+end
+
 dep "dev" do
-  requires "git.managed"
-  requires "cmake.managed"
-  requires "maven.managed"
-  requires "python.bin"
-  requires "gradle.bin"
-  requires "depot_tools"
+  requires "git.managed",
+           "cmake.managed",
+           "maven.managed",
+           "python.bin",
+           "gradle.bin",
+           "depot_tools",
+           "working_copies"
 end
