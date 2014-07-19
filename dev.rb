@@ -42,6 +42,7 @@ dep "dev" do
            "maven.managed",
            "gradle.bin",
            "depot_tools",
+           "Atom.app",
            "working_copies",
            "python"
 end
