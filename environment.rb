@@ -2,6 +2,10 @@ def home
   ENV["HOME"]
 end
 
+def bash_profile
+  File.join(home, ".bash_profile")
+end
+
 dep "ssh-key" do
   met? {
     File.exists?(File.join(home, ".ssh", "id_rsa"))

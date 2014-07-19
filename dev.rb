@@ -19,11 +19,6 @@ dep "gradle.bin" do
   installs "gradle"
 end
 
-dep "python.bin" do
-  installs "python"
-  provides "python ~> 2.7.6"
-end
-
 dep "depot_tools" do
   Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
 end
@@ -45,8 +40,8 @@ dep "dev" do
   requires "git.managed",
            "cmake.managed",
            "maven.managed",
-           "python.bin",
            "gradle.bin",
            "depot_tools",
-           "working_copies"
+           "working_copies",
+           "python"
 end
