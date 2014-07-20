@@ -15,6 +15,10 @@ dep "maven.managed" do
   provides "mvn"
 end
 
+dep "cryptopp.managed" do
+  installs "cryptopp"
+end
+
 dep "gradle.bin" do
   installs "gradle"
 end
@@ -40,6 +44,7 @@ dep "dev" do
   requires "git.managed",
            "cmake.managed",
            "maven.managed",
+           "cryptopp.managed",
            "gradle.bin",
            "depot_tools",
            "Atom.app",
