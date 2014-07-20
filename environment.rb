@@ -7,7 +7,12 @@ def bash_profile
 end
 
 dep "cask" do
-  shell "brew install caskroom/cask/brew-cask"
+  met? {
+    "/usr/local/Cellar/cask".p.exists?
+  }
+  meet {
+    shell "brew install caskroom/cask/brew-cask"  
+  }
 end
 
 dep "ssh-key" do

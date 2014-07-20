@@ -1,5 +1,10 @@
 dep "java8" do
-  shell "brew cask install java"
+  met? {
+    "/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/".p.exists?
+  }
+  meet {
+    shell "brew cask install java"
+  }
 end
 
 dep "maven.managed" do
