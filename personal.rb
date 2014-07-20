@@ -1,7 +1,9 @@
 dep "shenderson" do
   requires "environment",
-           "taps",
            "monitoring",
+           "python",
+           "c",
+           "java",
            "dev",
            "devops",
            "design",

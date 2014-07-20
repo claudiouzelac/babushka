@@ -6,23 +6,6 @@ dep "svn.managed" do
   installs "svn"
 end
 
-dep "cmake.managed" do
-  installs "cmake"
-end
-
-dep "valgrind.managed" do
-  installs "valgrind"
-end
-
-dep "maven.managed" do
-  installs "maven"
-  provides "mvn"
-end
-
-dep "gradle.bin" do
-  installs "gradle"
-end
-
 dep "depot_tools" do
   Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
 end
@@ -42,12 +25,8 @@ end
 
 dep "dev" do
   requires "git.managed",
-           "cmake.managed",
-           "maven.managed",
-           "valgrind.managed",
            "gradle.bin",
            "depot_tools",
            "Atom.app",
-           "working_copies",
-           "python"
+           "working_copies"
 end

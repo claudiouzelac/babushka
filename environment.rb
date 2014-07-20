@@ -6,6 +6,10 @@ def bash_profile
   File.join(home, ".bash_profile")
 end
 
+dep "cask" do
+  shell "brew install caskroom/cask/brew-cask"
+end
+
 dep "ssh-key" do
   met? {
     File.exists?(File.join(home, ".ssh", "id_rsa"))
@@ -18,5 +22,6 @@ dep "ssh-key" do
 end
 
 dep "environment" do
-  requires "ssh-key"
+  requires "ssh-key",
+           "cask"
 end
