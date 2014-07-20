@@ -7,6 +7,18 @@ dep "java8" do
   }
 end
 
+dep "scala.managed" do
+  installs "scala"
+end
+
+dep "sbt.managed" do
+  installs "sbt"
+end
+
+dep "akka.managed" do
+  installs "akka"
+end
+
 dep "maven.managed" do
   installs "maven"
   provides "mvn"
@@ -18,6 +30,9 @@ end
 
 dep "java" do
   requires "java8",
+           "scala.managed",
+           "sbt.managed",
+           "akka.managed",
            "maven.managed",
            "gradle.bin"
 end
