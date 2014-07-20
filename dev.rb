@@ -10,13 +10,13 @@ dep "cmake.managed" do
   installs "cmake"
 end
 
+dep "valgrind.managed" do
+  installs "valgrind"
+end
+
 dep "maven.managed" do
   installs "maven"
   provides "mvn"
-end
-
-dep "cryptopp.managed" do
-  installs "cryptopp"
 end
 
 dep "gradle.bin" do
@@ -44,7 +44,7 @@ dep "dev" do
   requires "git.managed",
            "cmake.managed",
            "maven.managed",
-           "cryptopp.managed",
+           "valgrind.managed",
            "gradle.bin",
            "depot_tools",
            "Atom.app",
