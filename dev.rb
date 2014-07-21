@@ -14,6 +14,10 @@ dep "depot_tools" do
   Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
 end
 
+dep "Dash.app" do
+  source "http://newyork2.kapeli.com/Dash.zip"
+end
+
 dep 'working_copies' do
   met? {
     (ENV['HOME'] / "dev").dir?
@@ -28,5 +32,6 @@ dep "dev" do
            "gradle.managed",
            "SourceTree.app",
            "depot_tools",
+           "Dash.app",
            "working_copies"
 end
