@@ -25,7 +25,7 @@ end
 
 dep "dev" do
   requires "git.managed",
-           "gradle.bin",
+           "gradle.managed",
            "SourceTree.app",
            "depot_tools",
            "working_copies"

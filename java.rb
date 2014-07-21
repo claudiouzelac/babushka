@@ -1,6 +1,6 @@
 dep "java8" do
   met? {
-    "/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/".p.exists?
+    Dir.exists?("/Library/Java/JavaVirtualMachines/")
   }
   meet {
     shell "brew cask install java"
