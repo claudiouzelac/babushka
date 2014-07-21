@@ -1,6 +1,5 @@
 dep "shenderson" do
   requires "environment",
-           "monitoring",
            "python",
            "c",
            "java",
@@ -11,5 +10,6 @@ dep "shenderson" do
            "comm",
            "apps",
            "osx",
-           "database"
+           "database",
+           "editors"
 end

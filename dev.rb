@@ -14,10 +14,6 @@ dep "depot_tools" do
   Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
 end
 
-dep 'Atom.app' do
-  source 'https://github.com/atom/atom/releases/download/v0.115.0/atom-mac.zip'
-end
-
 dep 'working_copies' do
   met? {
     (ENV['HOME'] / "dev").dir?
@@ -32,6 +28,5 @@ dep "dev" do
            "gradle.bin",
            "SourceTree.app",
            "depot_tools",
-           "Atom.app",
            "working_copies"
 end
