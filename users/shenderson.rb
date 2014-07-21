@@ -6,7 +6,7 @@ dep "shenderson" do
            "dev",
            "devops",
            "design",
-           "jetbrains",
+           "jetbrains-paid",
            "comm",
            "apps",
            "osx",

@@ -22,7 +22,7 @@ dep "0xDBE EAP.app" do
   source "http://download-cf.jetbrains.com/dbe/0xdbe-138.551.dmg"
 end
 
-dep "jetbrains" do
+dep "jetbrains-paid" do
   requires "Clion.app",
            "IntelliJ.app",
            "PyCharm.app",
