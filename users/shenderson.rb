@@ -10,5 +10,6 @@ dep "shenderson" do
            "jetbrains",
            "comm",
            "apps",
-           "osx"
+           "osx",
+           "database"
 end
