@@ -15,10 +15,8 @@ dep "WebStorm.app" do
 end
 
 dep "jetbrains-paid" do
-  requires "Clion.app",
-           "IntelliJ.app",
+  requires "IntelliJ.app",
            "PyCharm.app",
            "RubyMine.app",
-           "WebStorm.app",
-           "0xDBE EAP.app"
+           "WebStorm.app"
 end
