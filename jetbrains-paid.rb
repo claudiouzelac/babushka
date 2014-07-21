@@ -1,7 +1,3 @@
-dep "Clion.app" do
-  source "http://download.jetbrains.com/cpp/CLion-PEAP-7.dmg"
-end
-
 dep "IntelliJ.app" do
   source "http://download-cf.jetbrains.com/idea/ideaIU-13.1.3.dmg"
 end
@@ -16,10 +12,6 @@ end
 
 dep "WebStorm.app" do
   source "http://download-cf.jetbrains.com/webstorm/WebStorm-8.0.4.dmg"
-end
-
-dep "0xDBE EAP.app" do
-  source "http://download-cf.jetbrains.com/dbe/0xdbe-138.551.dmg"
 end
 
 dep "jetbrains-paid" do
