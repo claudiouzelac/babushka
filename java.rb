@@ -24,7 +24,7 @@ dep "maven.managed" do
   provides "mvn"
 end
 
-dep "gradle.bin" do
+dep "gradle.managed" do
   installs "gradle"
 end
 
@@ -34,5 +34,5 @@ dep "java" do
            "sbt.managed",
            "akka.managed",
            "maven.managed",
-           "gradle.bin"
+           "gradle.managed"
 end
