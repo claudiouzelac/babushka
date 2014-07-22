@@ -8,6 +8,7 @@ dep "shenderson" do
            "design",
            "jetbrains-paid",
            "jetbrains-eap",
+           "intellij-plugins",
            "comm",
            "apps",
            "osx",

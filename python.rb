@@ -9,24 +9,89 @@ dep 'pip' do
   }
 end
 
-dep 'pip.bin' do
-  requires 'python.bin' # To ensure python-dev is pulled in.
-  installs 'python-pip'
-end
-
 dep "django.pip" do
   installs "Django"
   provides "django-admin.py"
 end
 
-dep "Scrapy.pip"
-dep "ansi2html.pip"
+dep "aws-product-api" do
+  meet {
+    shell "sudo pip install git+https://github.com/yoavaviram/python-amazon-simple-product-api.git"
+  }
+end
+
+dep "kafka" do
+  meet {
+    shell "sudo pip install git+https://github.com/mumrah/kafka-python.git"
+  }
+end
+
+dep "boto" do
+  meet {
+    shell "sudo pip install boto"
+  }
+end
+
+dep "beautifulsoup4" do
+  meet {
+    shell "sudo pip install BeautifulSoup4"
+  }
+end
+
+dep "PyTop" do
+  meet {
+    shell "sudo pip install git+https://github.com/bububa/pyTOP.git"
+  }
+end
+
+dep "python-dateutil" do
+  meet {
+    shell "sudo pip install python-dateutil"
+  }
+end
+
+dep "requests" do
+  meet {
+    shell "sudo pip install requests"
+  }
+end
+
+dep "redis" do
+  meet {
+    shell "sudo pip install redis"
+  }
+end
+
+dep "scales" do
+  meet {
+    shell "sudo pip install git+https://github.com/Cue/scales.git"
+  }
+end
+
+dep "protobuf" do
+  meet {
+    shell "sudo pip install protobuf"
+  }
+end
+
+dep "gitpython" do
+  meet {
+    shell "sudo pip install gitpython"
+  }
+end
 
 dep "python" do
   requires "python.managed",
            "pip",
-           "pip.bin",
-           "django.pip",
-           "Scrapy.pip",
-           "ansi2html.pip"
+           "aws-product-api",
+           "kafka",
+           "boto",
+           "beautifulsoup4",
+           "PyTop",
+           "python-dateutil",
+           "requests",
+           "redis",
+           "scales",
+           "protobuf",
+           "gitpython"
 end
