@@ -13,6 +13,8 @@ Installation, condensed form:
 
   * Arch, pacman -S curl && sh -c "`curl https://babushka.me/up`"
 
+  * After installation, git clone git@bitbucket.org:{bitbucket_username}/babushka.git deps
+
 #User profiles#
 
   * Create a user profile under the users directory that has the package set.
