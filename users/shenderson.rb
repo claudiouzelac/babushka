@@ -13,5 +13,6 @@ dep "shenderson" do
            "apps",
            "osx",
            "database",
-           "editors"
+           "editors",
+           "monitoring"
 end
