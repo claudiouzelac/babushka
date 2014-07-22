@@ -1,3 +1,3 @@
-dep "shenderson" do
+dep "jmarco" do
   requires "java"
 end
