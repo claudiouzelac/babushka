@@ -6,6 +6,8 @@ Installation in depth: https://babushka.me/installing
 Installation, condensed form:
 
   * Debian, apt-get install -y curl && sh -c "`curl https://babushka.me/up`"
+            on older Ubuntu hosts, you will most likely have to use wget, 
+            sh -c "`wget -O - babushka.me/up`"
 
   * OSX/BSD, sh -c "`curl https://babushka.me/up`"
 
