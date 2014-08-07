@@ -28,6 +28,10 @@ dep "gradle.managed" do
   installs "gradle"
 end
 
+dep "tomcat.managed" do
+  installs "tomcat"
+end
+
 dep "java" do
   requires "java8",
            "scala.managed",
@@ -35,4 +39,5 @@ dep "java" do
            "akka.managed",
            "maven.managed",
            "gradle.managed"
+           "tomcat.manged"
 end
