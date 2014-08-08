@@ -3,7 +3,7 @@ dep "Clion.app" do
 end
 
 dep "0xDBE EAP.app" do
-  source "http://download-cf.jetbrains.com/dbe/0xdbe-138.551.dmg"
+  source "http://download.jetbrains.com/dbe/0xdbe-138.1400.3.dmg"
 end
 
 dep "jetbrains-eap" do
