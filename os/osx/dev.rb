@@ -7,9 +7,10 @@ dep "Dash.app"                  do source "http://newyork2.kapeli.com/Dash.zip" 
 dep "HTTP Client.app"           do source "http://ditchnet.org/httpclient/dist/HTTPClient.zip" end
 dep "Charles.app"               do source "http://www.charlesproxy.com/assets/release/3.7/charles_macosx.zip" end
 dep "HTTPScoop.app"             do source "http://www.tuffcode.com/releases/HTTPScoop_1.4.3.dmg" end
+dep "pidof.managed"             do installs 'pidof' end
 
-dep "depot_tools" do
-  Babushka::GitRepo.new("https://chromium.googlesource.com/chromium/tools/depot_tools.git").clone
+dep 'depot_tools' do
+  Babushka::GitRepo.new('https://chromium.googlesource.com/chromium/tools/depot_tools.git').clone
 end
 
 dep "code" do
@@ -18,10 +19,11 @@ dep "code" do
 end
 
 dep "dev" do
-  requires "git.managed",
-           "gradle.managed",
-           "SourceTree.app",
-           "depot_tools",
-           "Dash.app",
-           "code"
+  requires 'git.managed',
+           'gradle.managed',
+           'SourceTree.app',
+           'depot_tools',
+           'Dash.app',
+           'pidof.managed'
+           'code'
 end
