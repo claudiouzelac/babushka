@@ -11,8 +11,13 @@ dep "VirtualBox.installer" do
   met? { "/Applications/VirtualBox.app".p.exists? }
 end
 
+dep 'ansible.managed' do
+  installs 'ansible'
+end
+
 dep "devops" do
   requires "docker.managed",
            "boot2docker.managed",
-           "VirtualBox.installer"
+           "VirtualBox.installer",
+           'ansible.managed'
 end
