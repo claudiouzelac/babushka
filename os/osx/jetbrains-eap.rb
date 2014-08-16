@@ -1,5 +1,5 @@
 dep "Clion.app" do
-  source "http://download.jetbrains.com/cpp/CLion-PEAP-7.dmg"
+  source "http://download.jetbrains.com/cpp/CLion-PEAP-8.dmg"
 end
 
 dep "0xDBE EAP.app" do
