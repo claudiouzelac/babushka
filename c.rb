@@ -1,29 +1,33 @@
-dep "cmake.managed" do
-  installs "cmake"
+dep 'cmake.managed' do
+  installs 'cmake'
 end
 
 dep 'lua.managed' do
   installs 'lua'
 end
 
-dep "valgrind.managed" do
-  installs "valgrind"
+dep 'qt.managed' do
+  installs 'qt'
 end
 
-dep "scons.managed" do
-  installs "scons"
+dep 'valgrind.managed' do
+  installs 'valgrind'
 end
 
-dep "qemu.managed" do
-  installs "qemu"
+dep 'scons.managed' do
+  installs 'scons'
 end
 
-dep "libevent.managed" do
-  installs "libevent"
+dep 'qemu.managed' do
+  installs 'qemu'
 end
 
-dep "ddd.managed" do
-  installs "ddd"
+dep 'libevent.managed' do
+  installs 'libevent'
+end
+
+dep 'ddd.managed' do
+  installs 'ddd'
 end
 
 dep 'nasm.managed' do
@@ -37,6 +41,7 @@ end
 dep "c" do
   requires 'cmake.managed',
            'lua.managed',
+           'qt.managed',
            'valgrind.managed',
            'scons.managed',
            'ddd.managed',
