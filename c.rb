@@ -2,6 +2,10 @@ dep "cmake.managed" do
   installs "cmake"
 end
 
+dep 'lua.managed' do
+  installs 'lua'
+end
+
 dep "valgrind.managed" do
   installs "valgrind"
 end
@@ -32,6 +36,7 @@ end
 
 dep "c" do
   requires 'cmake.managed',
+           'lua.managed',
            'valgrind.managed',
            'scons.managed',
            'ddd.managed',
