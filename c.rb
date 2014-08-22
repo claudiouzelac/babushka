@@ -6,8 +6,8 @@ dep 'lua.managed' do
   installs 'lua'
 end
 
-dep 'qt.managed' do
-  installs 'qt'
+dep 'qt.app' do
+  source 'http://anychimirror101.mirrors.tds.net/pub/Qt/official_releases/online_installers/qt-opensource-mac-x64-1.6.0-4-online.dmg'
 end
 
 dep 'valgrind.managed' do
@@ -41,7 +41,7 @@ end
 dep "c" do
   requires 'cmake.managed',
            'lua.managed',
-           'qt.managed',
+           'qt.app',
            'valgrind.managed',
            'scons.managed',
            'ddd.managed',
