@@ -23,6 +23,64 @@ dep 'GPG.installer' do
   source 'https://releases.gpgtools.org/GPG_Suite-2015.09.dmg'
 end
 
+dep 'gpg_directory' do
+  def gnu_directory
+    '~/.gnupg/'
+  end
+  met? {
+    gnu_directory.p.exists?
+  }
+  meet {
+    shell("mkdir -p #{gnu_directory}")
+    shell("sudo chmod -R `whoami` #{gnu_directory}")
+  }
+end
+
+dep 'ssh_directory' do
+  def ssh_dir
+    '~/.ssh'
+  end
+
+  met? {
+    ssh_dir.p.exists?
+  }
+  meet {
+    shell("mkdir -p #{ssh_dir}")
+    shell("sudo chmod -R `whoami` #{ssh_dir}")
+  }
+end
+
+dep 'ssh_configuration' do
+  requires 'ssh_directory'
+
+  def config_file
+    '~/.ssh/ssh_config'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/ssh_config.erb')
+  }
+  meet {
+    render_erb '../../configs/ssh_config.erb', :to => config_file
+  }
+
+end
+
+dep 'gpg_configuration' do
+  requires 'GPG.installer',
+           'gpg_directory'
+  def config_file
+    '~/.gnupg/gpg.conf'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/gpg.conf.erb')
+  }
+  meet {
+    render_erb '../../configs/gpg.conf.erb', :to => config_file
+  }
+end
+
 dep 'keybase.managed' do
   installs 'keybase'
 end
@@ -107,9 +165,11 @@ dep 'security-osx' do
            'keybase.managed',
            'openssl.managed',
            'tor.managed',
+           'ssh_configuration',
            # 'i2p.managed',
            'tor_configuration',
            'GPG.installer',
+           'gpg_configuration',
            # 'privoxy.managed',
            'DNSCrypt Menubar.app',
            'Sync.app',

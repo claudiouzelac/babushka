@@ -6,6 +6,22 @@ def bash_profile
   File.join(home, '.bash_profile')
 end
 
+def bash_profile
+  File.join(home, '.curlrc')
+end
+
+dep 'curl_configuration' do
+  def config_file
+    '~/.curlrc'
+  end
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/curlrc.erb')
+  }
+  meet {
+    render_erb '../../configs/curlrc.erb', :to => config_file
+  }
+end
+
 dep 'ssh-key' do
   met? {
     File.exists?(File.join(home, '.ssh', 'id_rsa'))
@@ -18,5 +34,6 @@ dep 'ssh-key' do
 end
 
 dep 'environment-osx' do
-  requires 'ssh-key'
+  requires 'ssh-key',
+           'curl_configuration'
 end
