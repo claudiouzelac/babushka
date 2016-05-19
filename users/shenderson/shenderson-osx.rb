@@ -6,5 +6,6 @@ dep 'shenderson-osx' do
            'buildsystems-osx',
            'security-osx',
            'filesharing-osx',
-           'music-osx'
+           'music-osx',
+           'seatbelt-osx'
 end
