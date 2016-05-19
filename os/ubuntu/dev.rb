@@ -1,7 +1,7 @@
-dep "protobuf-compiler.managed" do
-    installs "protobuf-compiler"
+dep 'protobuf-compiler.managed' do
+    installs 'protobuf-compiler'
 end
 
-dep "dev-ubuntu" do
-    requires "protobuf-compiler.managed"
+dep 'dev-ubuntu' do
+    requires 'protobuf-compiler.managed'
 end

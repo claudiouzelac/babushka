@@ -3,7 +3,7 @@ dep 'disable-warn-on-trash-empty' do
 end
 
 dep 'show-all-files-in-folder' do
-	shell("defaults write com.apple.Finder AppleShowAllFiles YES")
+	shell('defaults write com.apple.Finder AppleShowAllFiles YES')
 end
 
 dep 'auto-hide-dock' do
@@ -20,7 +20,7 @@ dep 'enable-list-view' do
 end
 
 dep 'show-hard-drives-on-desktop' do
-	shell("defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true")
+	shell('defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true')
 end
 
 dep 'allow-quit-in-finder' do

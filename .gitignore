@@ -1,1 +1,5 @@
+# OSX files
 .DS_Store
+
+# Jetbrains RubyMine IDE files
+.idea/

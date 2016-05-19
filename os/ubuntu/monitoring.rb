@@ -1,7 +1,7 @@
-dep "strace.managed" do
-    installs "strace"
+dep 'strace.managed' do
+    installs 'strace'
 end
 
-dep "ubuntu-monitoring" do
-    requires "strace.managed"
+dep 'ubuntu-monitoring' do
+    requires 'strace.managed'
 end

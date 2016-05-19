@@ -8,7 +8,7 @@ dep 'fantasque-sans-mono.font' do
   provides %w{FantasqueSansMono-Bold FantasqueSansMono-BoldItalic FantasqueSansMono-Regular FantasqueSansMono-RegItalic}
 end
 
-dep "fonts" do
-  requires "bitstream-vera.font",
-           "fantasque-sans-mono.font"
+dep 'fonts' do
+  requires 'bitstream-vera.font',
+           'fantasque-sans-mono.font'
 end

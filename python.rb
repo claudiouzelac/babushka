@@ -1,5 +1,5 @@
-dep "python.managed" do
-  installs "python"
+dep 'python.managed' do
+  installs 'python'
 end
 
 dep 'pip' do
@@ -9,89 +9,82 @@ dep 'pip' do
   }
 end
 
-dep "django.pip" do
-  installs "Django"
-  provides "django-admin.py"
+dep 'django.pip' do
+  installs 'Django'
+  provides 'django-admin.py'
 end
 
-dep "aws-product-api" do
+dep 'kafka' do
   meet {
-    shell "sudo pip install git+https://github.com/yoavaviram/python-amazon-simple-product-api.git"
+    shell 'sudo pip install git+https://github.com/mumrah/kafka-python.git'
   }
 end
 
-dep "kafka" do
+dep 'boto' do
   meet {
-    shell "sudo pip install git+https://github.com/mumrah/kafka-python.git"
+    shell 'sudo pip install boto'
   }
 end
 
-dep "boto" do
+dep 'beautifulsoup4' do
   meet {
-    shell "sudo pip install boto"
+    shell 'sudo pip install BeautifulSoup4'
   }
 end
 
-dep "beautifulsoup4" do
+dep 'PyTop' do
   meet {
-    shell "sudo pip install BeautifulSoup4"
+    shell 'sudo pip install git+https://github.com/bububa/pyTOP.git'
   }
 end
 
-dep "PyTop" do
+dep 'python-dateutil' do
   meet {
-    shell "sudo pip install git+https://github.com/bububa/pyTOP.git"
+    shell 'sudo pip install python-dateutil'
   }
 end
 
-dep "python-dateutil" do
+dep 'requests' do
   meet {
-    shell "sudo pip install python-dateutil"
+    shell 'sudo pip install requests'
   }
 end
 
-dep "requests" do
+dep 'redis' do
   meet {
-    shell "sudo pip install requests"
+    shell 'sudo pip install redis'
   }
 end
 
-dep "redis" do
+dep 'scales' do
   meet {
-    shell "sudo pip install redis"
+    shell 'sudo pip install git+https://github.com/Cue/scales.git'
   }
 end
 
-dep "scales" do
+dep 'protobuf' do
   meet {
-    shell "sudo pip install git+https://github.com/Cue/scales.git"
+    shell 'sudo pip install protobuf'
   }
 end
 
-dep "protobuf" do
+dep 'gitpython' do
   meet {
-    shell "sudo pip install protobuf"
+    shell 'sudo pip install gitpython'
   }
 end
 
-dep "gitpython" do
-  meet {
-    shell "sudo pip install gitpython"
-  }
-end
-
-dep "python" do
-  requires "python.managed",
-           "pip",
-           "aws-product-api",
-           "kafka",
-           "boto",
-           "beautifulsoup4",
-           "PyTop",
-           "python-dateutil",
-           "requests",
-           "redis",
-           "scales",
-           "protobuf",
-           "gitpython"
+dep 'python' do
+  requires 'python.managed',
+           'pip',
+           'kafka',
+           'boto',
+           'beautifulsoup4',
+           'PyTop',
+           'python-dateutil',
+           'requests',
+           'redis',
+           'scales',
+           'protobuf',
+           'gitpython'
 end
