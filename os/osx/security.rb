@@ -39,11 +39,37 @@ dep 'hosts' do
   }
 end
 
+dep 'enable-firewall' do
+  shell('sudo defaults write /Library/Preferences/com.apple.alf globalstate -bool true')
+end
+
+dep 'enable-logging' do
+  shell('sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -bool true')
+end
+
+dep 'stealth-mode' do
+  shell('sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -bool true')
+end
+
+dep 'disable-automatic-connections-to-signed-software' do
+  shell('sudo defaults write /Library/Preferences/com.apple.alf allowsignedenabled -bool false')
+end
+
+dep 'disable-captive-portals' do
+  shell('sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false')
+end
+
+
 dep 'security-osx' do
   requires 'pass.managed',
            'DNSCrypt Menubar.app',
            'Sync.app',
            'hosts',
            'CyberGhost.app',
-           'VeraCrypt.installer'
+           'VeraCrypt.installer',
+           'enable-firewall',
+           'enable-logging',
+           'stealth-mode',
+           'disable-automatic-connections-to-signed-software',
+           'disable-captive-portals'
 end

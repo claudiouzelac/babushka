@@ -19,7 +19,7 @@ dep 'tomcat.managed' do
   installs 'tomcat'
 end
 
-dep 'java' do
+dep 'java-osx' do
   requires 'java8',
            'scala.managed',
            'sbt.managed',

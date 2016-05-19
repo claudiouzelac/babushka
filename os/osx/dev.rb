@@ -7,5 +7,6 @@ dep 'dev-osx' do
            'c-osx',
            'd-osx',
            'python-osx',
-           'java'
+           'java-osx',
+           'go-osx'
 end
