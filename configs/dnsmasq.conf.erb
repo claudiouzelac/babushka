@@ -1,0 +1,35 @@
+# Forward queries to dnscrypt on localhost
+server=127.0.0.1#5355
+
+# Never forward plain names
+domain-needed
+
+# Examples of blocking TLDs or subdomains
+address=/.onion/0.0.0.0
+address=/.local/0.0.0.0
+address=/.mycoolnetwork/0.0.0.0
+address=/.facebook.com/0.0.0.0
+
+# Never forward addresses in the non-routed address spaces
+bogus-priv
+
+# Reject private addresses from upstream nameservers
+stop-dns-rebind
+
+# Query servers in order
+strict-order
+
+# Set the size of the cache
+# The default is to keep 150 hostnames
+cache-size=8192
+
+# Optional logging directives
+log-async
+log-dhcp
+log-queries
+log-facility=/var/log/dnsmasq.log
+
+# DNSSEC options
+dnssec
+trust-anchor=.,19036,8,2,49AAC11D7B6F6446702E54A1607371607A1A41855200FD2CE1CDDE32F24E8FB5
+dnssec-check-unsigned

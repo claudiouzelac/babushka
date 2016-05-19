@@ -27,6 +27,10 @@ dep 'tor.managed' do
   installs 'tor'
 end
 
+dep 'i2p.managed' do
+  installs 'i2p'
+end
+
 dep 'tor_configuration' do
   requires 'tor.managed'
   def config_file
@@ -98,6 +102,7 @@ dep 'security-osx' do
   requires 'pass.managed',
            'keybase.managed',
            'tor.managed',
+           'i2p.managed',
            'tor_configuration',
            'GPG.installer',
            # 'privoxy.managed',
