@@ -26,10 +26,6 @@ dep 'libevent.managed' do
   installs 'libevent'
 end
 
-dep 'ddd.managed' do
-  installs 'ddd'
-end
-
 dep 'nasm.managed' do
   installs 'nasm'
 end
@@ -38,13 +34,12 @@ dep 'doxygen.managed' do
   installs 'doxygen'
 end
 
-dep "c" do
+dep 'c' do
   requires 'cmake.managed',
            'lua.managed',
            'qt.app',
            'valgrind.managed',
            'scons.managed',
-           'ddd.managed',
            'nasm.managed',
            'doxygen.managed'
 end

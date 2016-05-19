@@ -1,16 +1,13 @@
 dep 'git.managed' do installs 'git'
 end
+
 dep 'svn.managed' do installs 'svn'
 end
+
 dep 'pidof.managed' do installs 'pidof' end
 
 dep 'depot_tools' do
   Babushka::GitRepo.new('https://chromium.googlesource.com/chromium/tools/depot_tools.git').clone
-end
-
-dep 'code' do
-  met? { shell('file -b ~/code') == 'directory' }
-  meet { shell('mkdir -p ~/code') }
 end
 
 dep 'dev' do
@@ -18,5 +15,4 @@ dep 'dev' do
            'gradle.managed',
            'depot_tools',
            'pidof.managed'
-           'code'
 end
