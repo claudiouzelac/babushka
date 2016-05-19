@@ -53,7 +53,7 @@ dep 'show-mounts-on-desktop' do
 	shell('defaults write com.apple.finder ShowMountedServersOnDesktop -bool true')
 end
 
-dep 'osx' do
+dep 'system-osx' do
 	requires 'disable-warn-on-trash-empty',
 	 				 'show-all-files-in-folder',
 	 				 'auto-hide-dock',
