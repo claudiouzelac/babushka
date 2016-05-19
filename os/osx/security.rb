@@ -2,8 +2,25 @@ dep 'pass.managed' do
   installs 'pass'
 end
 
+# dep 'privoxy.managed' do
+#   installs 'privoxy'
+#   shell('ln -sfv /usr/local/opt/privoxy/*.plist ~/Library/LaunchAgents')
+#   shell('launchctl load ~/Library/LaunchAgents/homebrew.mxcl.privoxy.plist')
+# end
+
+dep 'GPG.installer' do
+  met? {
+    '/Applications/GPG Keychain.app'.p.exists?
+  }
+  source 'https://releases.gpgtools.org/GPG_Suite-2015.09.dmg'
+end
+
 dep 'keybase.managed' do
-  install 'keybase'
+  installs 'keybase'
+end
+
+dep 'tor.managed' do
+  installs 'tor'
 end
 
 dep 'VeraCrypt.installer' do
@@ -62,6 +79,10 @@ end
 
 dep 'security-osx' do
   requires 'pass.managed',
+           'keybase.managed',
+           'tor.managed',
+           'GPG.installer',
+           # 'privoxy.managed',
            'DNSCrypt Menubar.app',
            'Sync.app',
            'hosts',
