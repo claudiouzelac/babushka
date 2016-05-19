@@ -6,6 +6,10 @@ dep 'pass.managed' do
   installs 'pass'
 end
 
+dep 'openssl.managed' do
+  installs 'openssl'
+end
+
 # dep 'privoxy.managed' do
 #   installs 'privoxy'
 #   shell('ln -sfv /usr/local/opt/privoxy/*.plist ~/Library/LaunchAgents')
@@ -27,9 +31,9 @@ dep 'tor.managed' do
   installs 'tor'
 end
 
-dep 'i2p.managed' do
-  installs 'i2p'
-end
+# dep 'i2p.managed' do
+#   installs 'i2p'
+# end
 
 dep 'tor_configuration' do
   requires 'tor.managed'
@@ -101,8 +105,9 @@ end
 dep 'security-osx' do
   requires 'pass.managed',
            'keybase.managed',
+           'openssl.managed',
            'tor.managed',
-           'i2p.managed',
+           # 'i2p.managed',
            'tor_configuration',
            'GPG.installer',
            # 'privoxy.managed',
