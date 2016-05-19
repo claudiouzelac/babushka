@@ -1,3 +1,7 @@
+def home
+  ENV['HOME']
+end
+
 dep 'pass.managed' do
   installs 'pass'
 end
@@ -21,6 +25,19 @@ end
 
 dep 'tor.managed' do
   installs 'tor'
+end
+
+dep 'tor_configuration' do
+  requires 'tor.managed'
+  def config_file
+    '~/.tor/torrc'
+  end
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/torrc.erb')
+  }
+  meet {
+    render_erb '../../configs/torrc.erb', :to => config_file
+  }
 end
 
 dep 'VeraCrypt.installer' do
@@ -81,6 +98,7 @@ dep 'security-osx' do
   requires 'pass.managed',
            'keybase.managed',
            'tor.managed',
+           'tor_configuration',
            'GPG.installer',
            # 'privoxy.managed',
            'DNSCrypt Menubar.app',
