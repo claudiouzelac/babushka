@@ -74,7 +74,7 @@ dep 'gitpython' do
   }
 end
 
-dep 'python' do
+dep 'python-osx' do
   requires 'python.managed',
            'pip',
            'kafka',

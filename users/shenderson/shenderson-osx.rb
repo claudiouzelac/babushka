@@ -1,15 +1,7 @@
-dep 'shenderson' do
-  requires 'environment',
-           'python',
-           'c',
-           'java',
-           'dev',
-           'devops',
-           'design',
-           'comm',
-           'apps',
-           'osx',
-           'database',
-           'editors',
-           'monitoring'
+dep 'shenderson-osx' do
+  requires 'communications-osx',
+           'dev-osx',
+           'buildsystems-osx',
+           'security-osx',
+           'filesharing-osx'
 end

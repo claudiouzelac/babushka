@@ -11,21 +11,8 @@ dep 'scala.managed' do
   installs 'scala'
 end
 
-dep 'sbt.managed' do
-  installs 'sbt'
-end
-
 dep 'akka.managed' do
   installs 'akka'
-end
-
-dep 'maven.managed' do
-  installs 'maven'
-  provides 'mvn'
-end
-
-dep 'gradle.managed' do
-  installs 'gradle'
 end
 
 dep 'tomcat.managed' do

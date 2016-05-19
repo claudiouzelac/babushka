@@ -10,7 +10,7 @@ dep 'WhatsApp.app' do
   source 'https://web.whatsapp.com/desktop/mac/files/WhatsApp.zip'
 end
 
-dep 'communications' do
+dep 'communications-osx' do
   requires 'Adium.app',
            'Ricochet.app',
            'WhatsApp.app'

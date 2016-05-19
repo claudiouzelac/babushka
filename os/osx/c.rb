@@ -34,7 +34,7 @@ dep 'doxygen.managed' do
   installs 'doxygen'
 end
 
-dep 'c' do
+dep 'c-osx' do
   requires 'cmake.managed',
            'lua.managed',
            'qt.app',
