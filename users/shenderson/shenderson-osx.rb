@@ -8,5 +8,6 @@ dep 'shenderson-osx' do
            'filesharing-osx',
            'music-osx',
            'seatbelt-osx',
-           'osx-profiles'
+           'osx-profiles',
+           'browsers-osx'
 end
