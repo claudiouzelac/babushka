@@ -11,5 +11,6 @@ dep 'shenderson-osx' do
            'osx-profiles',
            'brave-osx',
            'privacy-osx',
-           'avogadro-osx'
+           'avogadro-osx',
+           'arq-osx'
 end
