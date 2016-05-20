@@ -6,8 +6,9 @@ dep 'shenderson-osx' do
            'buildsystems-osx',
            'security-osx',
            'filesharing-osx',
-           'music-osx',
+           'spotify-osx',
            'seatbelt-osx',
            'osx-profiles',
-           'browsers-osx'
+           'brave-osx',
+           'privacy-osx'
 end

@@ -44,8 +44,83 @@ dep 'install_global_extensions' do
   end
 end
 
+dep 'create_firefox_library_directory' do
+  def firefox_library_directory
+    '~/Library/Application\ Support/Firefox'
+  end
+
+  met? {
+    firefox_library_directory.p.exists?
+  }
+  meet {
+    shell("sudo mkdir -p #{firefox_library_directory}")
+  }
+end
+
+dep 'create_firefox_profiles_directory' do
+  requires 'create_firefox_library_directory'
+  def firefox_profiles_directory
+    '~/Library/Application\ Support/Firefox/Profiles'
+  end
+
+  met? {
+    firefox_profiles_directory.p.exists?
+  }
+  meet {
+    shell("mkdir -p #{firefox_profiles_directory}")
+  }
+end
+
+dep 'create_firefox_profiles_directory' do
+  requires 'firefox_profiles_directory'
+  def firefox_babushka_profile_directory
+    '~/Library/Application\ Support/Firefox/Profiles/babushka.default'
+  end
+
+  met? {
+    firefox_babushka_profile_directory.p.exists?
+  }
+  meet {
+    shell("mkdir -p #{firefox_babushka_profile_directory}")
+  }
+end
+
+dep 'configure_firefox_profile' do
+  # requires 'create_firefox_profiles_directory'
+  def firefox_babushka_profile_prefs_js
+    '~/Library/Application Support/Firefox/Profiles/babushka.default/prefs.js'
+  end
+  met? {
+    Babushka::Renderable.new(firefox_babushka_profile_prefs_js).from?('~/.babushka/deps/configs/prefs.js.erb')
+  }
+  meet {
+    render_erb '../../../configs/prefs.js.erb', :to => firefox_babushka_profile_prefs_js
+  }
+end
+
+dep 'configure_firefox_user_profile' do
+  def firefox_babushka_profile_user_js
+    '~/Library/Application Support/Firefox/Profiles/babushka.default/user.js'
+  end
+  met? {
+    Babushka::Renderable.new(firefox_babushka_profile_user_js).from?('~/.babushka/deps/configs/user.js.erb')
+  }
+  meet {
+    render_erb '../../../configs/user.js.erb', :to => firefox_babushka_profile_user_js
+  }
+end
+
+dep 'create_firefox_profile' do
+  shell('~/Applications/Firefox.app/Contents/MacOS/firefox-bin -P')
+end
+
 dep 'browsers-osx' do
   requires 'Firefox.app',
+           # 'create_firefox_library_directory',
+           # 'create_firefox_profiles_directory',
+           # 'configure_firefox_profile',
+           # 'configure_firefox_user_profile',
+           'create_firefox_profile',
            'get_extensions',
            'install_global_extensions'
 end

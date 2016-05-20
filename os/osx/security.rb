@@ -2,10 +2,6 @@ def home
   ENV['HOME']
 end
 
-dep 'pass.managed' do
-  installs 'pass'
-end
-
 dep 'openssl.managed' do
   installs 'openssl'
 end
@@ -85,40 +81,8 @@ dep 'keybase.managed' do
   installs 'keybase'
 end
 
-dep 'tor.managed' do
-  installs 'tor'
-end
-
-# dep 'i2p.managed' do
-#   installs 'i2p'
-# end
-
-dep 'tor_configuration' do
-  requires 'tor.managed'
-  def config_file
-    '~/.tor/torrc'
-  end
-  met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/torrc.erb')
-  }
-  meet {
-    render_erb '../../configs/torrc.erb', :to => config_file
-  }
-end
-
-dep 'VeraCrypt.installer' do
-  met? {
-    '/Applications/VeraCrypt.app'.p.exists?
-  }
-  source 'http://downloads.sourceforge.net/project/veracrypt/VeraCrypt%201.17/VeraCrypt_1.17.dmg'
-end
-
 dep 'DNSCrypt Menubar.app' do
   source 'https://github.com/alterstep/dnscrypt-osxclient/releases/download/1.0.10/dnscrypt-osxclient-1.0.10.dmg'
-end
-
-dep 'CyberGhost.app' do
-  source 'http://download.cyberghostvpn.com/mac/cg5mac_5.0.14.12.dmg'
 end
 
 def home
@@ -183,20 +147,15 @@ end
 
 
 dep 'security-osx' do
-  requires 'pass.managed',
-           'keybase.managed',
+  requires 'keybase.managed',
            'openssl.managed',
-           'tor.managed',
            'ssh_configuration',
-           # 'i2p.managed',
-           'tor_configuration',
            'GPG.installer',
            'gpg_configuration',
            # 'privoxy.managed',
            'DNSCrypt Menubar.app',
            'Sync.app',
            'hosts',
-           'CyberGhost.app',
            'VeraCrypt.installer',
            'enable-firewall',
            'enable-logging',

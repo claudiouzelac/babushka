@@ -42,7 +42,7 @@ dep 'cant_disable_filevault' do
     render_erb '../../osx-profiles/cant_disable_filevault.mobileconfig.erb', :to => diagnostic_info
     shell("sudo /usr/bin/profiles -IF #{diagnostic_info}")
   }
-end
+  end
 
 dep 'osx-profiles' do
   requires 'suppress_diagnostic_info',
