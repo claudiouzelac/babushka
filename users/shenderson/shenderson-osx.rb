@@ -10,5 +10,6 @@ dep 'shenderson-osx' do
            'seatbelt-osx',
            'osx-profiles',
            'brave-osx',
-           'privacy-osx'
+           'privacy-osx',
+           'avogadro-osx'
 end
