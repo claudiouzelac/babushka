@@ -1,16 +1,6 @@
-def home
-  ENV['HOME']
-end
-
 dep 'openssl.managed' do
   installs 'openssl'
 end
-
-# dep 'privoxy.managed' do
-#   installs 'privoxy'
-#   shell('ln -sfv /usr/local/opt/privoxy/*.plist ~/Library/LaunchAgents')
-#   shell('launchctl load ~/Library/LaunchAgents/homebrew.mxcl.privoxy.plist')
-# end
 
 dep 'GPG.installer' do
   met? {
@@ -77,30 +67,8 @@ dep 'gpg_configuration' do
   }
 end
 
-dep 'keybase.managed' do
-  installs 'keybase'
-end
-
 dep 'DNSCrypt Menubar.app' do
   source 'https://github.com/alterstep/dnscrypt-osxclient/releases/download/1.0.10/dnscrypt-osxclient-1.0.10.dmg'
-end
-
-def home
-  ENV['HOME']
-end
-
-def hosts_repo
-  File.join(home, 'code', 'hosts')
-end
-
-dep 'hosts' do
-  met? {
-    Babushka::GitRepo.new(hosts_repo).exists?
-  }
-  meet {
-    Babushka::GitRepo.new(hosts_repo).clone! 'https://github.com/StevenBlack/hosts.git'
-    shell "python #{hosts_repo}/updateHostsFile.py --auto"
-  }
 end
 
 dep 'enable-firewall' do
@@ -152,9 +120,7 @@ dep 'security-osx' do
            'ssh_configuration',
            'GPG.installer',
            'gpg_configuration',
-           # 'privoxy.managed',
            'DNSCrypt Menubar.app',
-           'Sync.app',
            'hosts',
            'VeraCrypt.installer',
            'enable-firewall',
