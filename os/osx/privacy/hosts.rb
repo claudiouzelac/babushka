@@ -16,3 +16,7 @@ dep 'hosts' do
     shell("sudo mv #{hosts_repo}/hosts /etc/hosts")
   }
 end
+
+dep 'hosts-osx' do
+  requires 'hosts'
+end

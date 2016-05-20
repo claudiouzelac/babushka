@@ -1,76 +1,3 @@
-dep 'openssl.managed' do
-  installs 'openssl'
-end
-
-dep 'GPG.installer' do
-  met? {
-    '/Applications/GPG Keychain.app'.p.exists?
-  }
-  source 'https://releases.gpgtools.org/GPG_Suite-2015.09.dmg'
-end
-
-dep 'gpg_directory' do
-  def gnu_directory
-    '~/.gnupg/'
-  end
-  met? {
-    gnu_directory.p.exists?
-  }
-  meet {
-    shell("mkdir -p #{gnu_directory}")
-    shell("sudo chmod -R `whoami` #{gnu_directory}")
-  }
-end
-
-dep 'ssh_directory' do
-  def ssh_dir
-    '~/.ssh'
-  end
-
-  met? {
-    ssh_dir.p.exists?
-  }
-  meet {
-    shell("mkdir -p #{ssh_dir}")
-    shell("sudo chmod -R `whoami` #{ssh_dir}")
-  }
-end
-
-dep 'ssh_configuration' do
-  requires 'ssh_directory'
-
-  def config_file
-    '~/.ssh/ssh_config'
-  end
-
-  met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/ssh_config.erb')
-  }
-  meet {
-    render_erb '../../configs/ssh_config.erb', :to => config_file
-  }
-
-end
-
-dep 'gpg_configuration' do
-  requires 'GPG.installer',
-           'gpg_directory'
-  def config_file
-    '~/.gnupg/gpg.conf'
-  end
-
-  met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/gpg.conf.erb')
-  }
-  meet {
-    render_erb '../../configs/gpg.conf.erb', :to => config_file
-  }
-end
-
-dep 'DNSCrypt Menubar.app' do
-  source 'https://github.com/alterstep/dnscrypt-osxclient/releases/download/1.0.10/dnscrypt-osxclient-1.0.10.dmg'
-end
-
 dep 'enable-firewall' do
   shell('sudo defaults write /Library/Preferences/com.apple.alf globalstate -bool true')
 end
@@ -113,17 +40,8 @@ dep 'disable-bonjour-announcements' do
   shell('sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool YES')
 end
 
-
-dep 'security-osx' do
-  requires 'keybase.managed',
-           'openssl.managed',
-           'ssh_configuration',
-           'GPG.installer',
-           'gpg_configuration',
-           'DNSCrypt Menubar.app',
-           'hosts',
-           'VeraCrypt.installer',
-           'enable-firewall',
+dep 'harden-osx' do
+  requires 'enable-firewall',
            'enable-logging',
            'stealth-mode',
            'disable-automatic-connections-to-signed-software',
