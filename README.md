@@ -17,7 +17,7 @@ Installation, condensed form:
   * After installation
   
     ```
-    git clone git@bitbucket.org:{bitbucket_username}/babushka.git ~/.babushka/deps
+    git clone git@github.com:bowlofstew/babushka.git ~/.babushka/deps
     ```
 
 # User profiles

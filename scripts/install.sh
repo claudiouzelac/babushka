@@ -14,4 +14,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     type brew >/dev/null 2>&1 || {
         ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     }
+    git clone git@github.com:bowlofstew/babushka.git ~/.babushka/deps
 fi
