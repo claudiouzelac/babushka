@@ -1,4 +1,4 @@
-#Babushka#
+# Babushka
 
 Installation in depth: https://babushka.me/installing
 
@@ -14,12 +14,16 @@ Installation, condensed form:
 
   * Arch, pacman -S curl && sh -c "`curl https://babushka.me/up`"
 
-  * After installation, git clone git@bitbucket.org:{bitbucket_username}/babushka.git ~/.babushka/deps
+  * After installation
+  
+    ```
+    git clone git@bitbucket.org:{bitbucket_username}/babushka.git ~/.babushka/deps
+    ```
 
-#User profiles#
+# User profiles
 
   * Create a user profile under the users directory that has the package set.
 
   * Commit your profile
 
-  * Execute babushka meet {profile_name}.  An example is `babushka meet shenderson`
+  * Execute babushka meet {profile_name}.  An example is `babushka meet shenderson-work-osx`
