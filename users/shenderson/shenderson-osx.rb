@@ -7,5 +7,6 @@ dep 'shenderson-osx' do
            'security-osx',
            'filesharing-osx',
            'music-osx',
-           'seatbelt-osx'
+           'seatbelt-osx',
+           'osx-profiles'
 end

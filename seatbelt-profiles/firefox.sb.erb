@@ -1,50 +1,43 @@
 (version 1)
-(debug deny)
-
-(allow network-outbound)
-
-(allow ipc-posix-shm)
-
-;(allow process-exec
-;    (regex
-;        #"^/Applications/Firefox.app/*"
-;    )
-;)
-(allow sysctl-read)
-(allow file-read-metadata)
-(allow signal)
-(allow process*)
-;(allow mach*)
-(allow mach-lookup)
-;(allow process-exec
-;    (regex
-;        #"^/System/Library/CoreServices/*"
-;    )
-;)
-;; Allow these reads:
-(allow file-read*
-    (regex
-        #"^/Users/[^.]+/$"
-        #"^/Users/[^.]+/Downloads"
-        #"^/Users/[^.]+/Library"
-        #"^/Users/[^.]+/Public"
-        #"^/Users/[^.]+/Sites"
-        #"^/Applications/Safari.app"
-        #"^/Library/*"
-        #"^/System/Library/*"
-        #"^/usr/lib/*"
-        #"^/usr/share/*"
-        #"^/private/*"
-        #"^/dev/*"
-    )
-)
-;; Allow these writes:
-(allow file-write*
-    (regex
-        #"^/Users/[^.]+/Downloads/*"
-        #"^/Users/[^.]+/Library/.*"
-        #"^/private/var/*"
-        #"^/dev/dtracehelper"
-    )
-)
 (deny default)
+
+(allow file-write* file-read-data file-read-metadata
+  (regex "^/Users/user_name/Downloads")
+  (regex "^/Users/user_name/Library/Application Support/Mozilla")
+  (regex "^/Users/user_name/Library/Application Support/Firefox")
+  (regex "^/Users/user_name/Library/Preferences")
+  (regex "^/Users/user_name/Library/PreferencePanes")
+  (regex "^/Users/user_name/Library/Caches/Firefox")
+  (regex "^/Users/user_name/Library/Caches/TemporaryItems")
+  (regex "^/Applications/Firefox.app")
+  (regex "^(/private)?/tmp/"))
+
+(allow file-read-data file-read-metadata
+  (regex "^/dev/autofs.*")
+  (regex "^/Library/Preferences")
+  (regex "^/Library/Internet Plug-Ins")
+  (regex "^/Library/PreferencePanes")
+  (regex "^/usr/share/icu")
+  (regex "^/usr/share/locale")
+  (regex "^/System/Library")
+  (regex "^/Applications/Firefox.app")
+  (regex "^/usr/lib")
+  (regex "^/var")
+  (regex #"Frameworks/SDL.framework")
+; Our Module Directory Services cache
+  (regex "^/private/var/tmp/mds/")
+  (regex "^/private/var/tmp/mds/[0-9]+(/|$)")
+  (regex "^/Users/user_name"))
+
+(allow mach* sysctl-read)
+
+(import "/usr/share/sandbox/bsd.sb")
+(deny file-write-data
+   (regex #"^(/private)?/etc/localtime$"
+     #"^/usr/share/nls/"
+	 #"^/usr/share/zoneinfo/"))
+
+(allow process-exec
+  (regex "^/Applications/Firefox.app"))
+
+(allow network*)
