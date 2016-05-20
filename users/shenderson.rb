@@ -6,5 +6,6 @@ dep 'shenderson-osx-work' do
            'dev-osx',
            'security-osx',
            'spotify-osx',
-           'privacy-osx'
+           'privacy-osx',
+           'shell-osx'
 end
