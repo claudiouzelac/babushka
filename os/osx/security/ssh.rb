@@ -27,7 +27,21 @@ dep 'ssh_configuration' do
   }
 end
 
+dep 'generate_key', :key, :passphrase do
+  def path
+    "~/.ssh/#{key}"
+  end
+  met? {
+    "#{key}".p.exists?
+  }
+  meet {
+    raw_shell "ssh-keygen -b 2048 -t rsa -f #{path} -q -N ''"
+  }
+end
+
+
 dep 'ssh-osx' do
   requires 'ssh_directory',
            'ssh_configuration'
+           # 'generate_key'.with(:key => 'work', :passphrase => '')
 end

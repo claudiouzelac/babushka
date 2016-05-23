@@ -7,5 +7,6 @@ dep 'privacy-osx' do
               keybase-osx
               hosts-osx
               tunnelblick-osx
+              privoxy-osx
               )
 end
