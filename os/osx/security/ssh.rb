@@ -37,7 +37,10 @@ dep 'generate_key', :key, :passphrase do
     "#{path}".p.exists?
   }
   meet {
-    shell("ssh-keygen -b 2048 -t rsa -f #{path} -q -N ''")
+    shell("ssh-keygen -t rsa -b 4096 -P '#{passphrase}' -f #{path} -q")
+  }
+  after {
+    log_ok('SSH keys generated for ' + key)
   }
 end
 
@@ -45,7 +48,7 @@ end
 dep 'ssh-osx' do
   requires 'ssh_directory',
            'ssh_configuration',
-           'generate_key'.with(:key => 'channeliq-bitbucket', :passphrase => ''),
-           'generate_key'.with(:key => 'personal-bitbucket', :passphrase => ''),
-           'generate_key'.with(:key => 'personal-github', :passphrase => '')
+           'generate_key'.with(:key => 'channeliq-bitbucket', :passphrase => ENV['WORK_PASSPHRASE']),
+           'generate_key'.with(:key => 'personal-bitbucket', :passphrase => ENV['BITBUCKET_PASSPHRASE']),
+           'generate_key'.with(:key => 'personal-github', :passphrase =>  ENV['GITHUB_PASSPHRASE'])
 end
