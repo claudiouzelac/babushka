@@ -1,9 +1,9 @@
-dep 'shenderson-osx-work' do
+dep 'shenderson-work' do
   requires 'environment-osx',
            'personalization-osx',
            'harden-osx',
            'communications-work-osx',
-           'dev-osx',
+           'dev-work-osx',
            'security-osx',
            'spotify-osx',
            'privacy-osx',
