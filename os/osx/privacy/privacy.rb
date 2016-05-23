@@ -6,5 +6,6 @@ dep 'privacy-osx' do
               gpg-osx
               keybase-osx
               hosts-osx
+              tunnelblick-osx
               )
 end
