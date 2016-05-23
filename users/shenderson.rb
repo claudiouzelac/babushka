@@ -7,5 +7,6 @@ dep 'shenderson-osx-work' do
            'security-osx',
            'spotify-osx',
            'privacy-osx',
-           'shell-osx'
+           'shell-osx',
+           'arq-osx'
 end

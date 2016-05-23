@@ -1,0 +1,10 @@
+[user]
+name = <%= @git-username %>
+email = <%= @git-email %>
+signingkey = <%= @primary-key %>
+[core]
+autocrlf = input
+[credential]
+helper = osxkeychain
+[commit]
+gpgsign = true
