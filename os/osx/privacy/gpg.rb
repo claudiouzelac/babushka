@@ -18,20 +18,20 @@ dep 'gpg_directory' do
   }
 end
 
-# dep 'gpg_configuration' do
-#   requires 'GPG.installer',
-#            'gpg_directory'
-#   def config_file
-#     '~/.gnupg/gpg.conf'
-#   end
-#
-#   met? {
-#     Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/gpg.conf.erb')
-#   }
-#   meet {
-#     render_erb '../../../configs/gpg.conf.erb', :to => config_file
-#   }
-# end
+dep 'gpg_configuration' do
+  requires 'GPG.installer',
+           'gpg_directory'
+  def config_file
+    '~/.gnupg/gpg.conf'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/gpg.conf.erb')
+  }
+  meet {
+    render_erb '../../../configs/gpg.conf.erb', :to => config_file
+  }
+end
 
 dep 'gpg-osx' do
   requires 'GPG.installer',
