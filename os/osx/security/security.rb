@@ -1,5 +1,7 @@
 dep 'security-osx' do
-  requires 'ssh-osx',
-           'dnscrypt-osx',
-           'harden-osx'
+  requires %w(
+              ssh-osx
+              dnscrypt-osx
+              harden-osx
+              )
 end
