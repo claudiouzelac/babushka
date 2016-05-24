@@ -47,8 +47,8 @@ end
 
 dep 'ssh-osx' do
   requires 'ssh_directory',
-           'ssh_configuration',
-           'generate_key'.with(:key => 'channeliq-bitbucket', :passphrase => ENV['WORK_PASSPHRASE']),
-           'generate_key'.with(:key => 'personal-bitbucket', :passphrase => ENV['BITBUCKET_PASSPHRASE']),
-           'generate_key'.with(:key => 'personal-github', :passphrase =>  ENV['GITHUB_PASSPHRASE'])
+           'ssh_configuration'
+           # 'generate_key'.with(:key => 'channeliq-bitbucket', :passphrase => ENV['WORK_PASSPHRASE']),
+           # 'generate_key'.with(:key => 'personal-bitbucket', :passphrase => ENV['BITBUCKET_PASSPHRASE']),
+           # 'generate_key'.with(:key => 'personal-github', :passphrase =>  ENV['GITHUB_PASSPHRASE'])
 end

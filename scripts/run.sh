@@ -7,6 +7,6 @@ unset WORK_PASSPHRASE
 # In the case that pass isn't installed or the user doesn't have
 # the password then the Babushka script will prompt the user
 # for the password.  This seems acceptable.
-WORK_PASSPHRASE="$(pass work/channeliq/keys/ssh/bitbucket.org)"
+export WORK_PASSPHRASE="$(pass work/channeliq/keys/ssh/bitbucket.org)"
 
 babushka meet shenderson-work
