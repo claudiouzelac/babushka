@@ -49,6 +49,14 @@ dep 'avoid-ds-store-creation-on-nextwork-volumes' do
   shell('defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true')
 end
 
+dep 'open-on-home-directory' do
+  shell('defaults write com.apple.finder NewWindowTarget PfHm')
+end
+
+dep 'prefer-list-view' do
+  shell('defaults write com.apple.finder FXPreferredViewStyle Nlsv')
+end
+
 dep 'configure_finder' do
   requires %w(
               allow-quit-in-finder
@@ -62,5 +70,7 @@ dep 'configure_finder' do
               disable-warns-on-file-extension-changes
               securely-empty-trash
               avoid-ds-store-creation-on-nextwork-volumes
+              open-on-home-directory
+              prefer-list-view
               )
 end
