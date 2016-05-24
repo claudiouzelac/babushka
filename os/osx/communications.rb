@@ -1,10 +1,10 @@
-dep 'communications-work-osx' do
+dep('communications-work-osx') {
   requires 'hipchat-osx'
-end
+}
 
-dep 'communications-osx' do
+dep('communications-osx') {
   requires 'adium-osx',
            'ricochet-osx',
            'whatsapp-osx',
            'bitmessage-osx'
-end
+}

@@ -57,7 +57,15 @@ dep 'prefer-list-view' do
   shell('defaults write com.apple.finder FXPreferredViewStyle Nlsv')
 end
 
-dep 'configure_finder' do
+dep('show-all-filename-extensions') {
+  shell('defaults write NSGlobalDomain AppleShowAllExtensions -bool true')
+}
+
+dep('disable-all-animations') {
+  shell('defaults write com.apple.finder DisableAllAnimations -bool true')
+}
+
+dep('configure_finder') {
   requires %w(
               allow-quit-in-finder
               limit-search-scope-to-finder-location
@@ -72,5 +80,7 @@ dep 'configure_finder' do
               avoid-ds-store-creation-on-nextwork-volumes
               open-on-home-directory
               prefer-list-view
+              show-all-filename-extensions
+              disable-all-animations
               )
-end
+}

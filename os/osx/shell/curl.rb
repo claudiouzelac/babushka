@@ -1,16 +1,13 @@
-def bash_profile
-  File.join(home, '.curlrc')
-end
-
-def home
-  ENV['HOME']
-end
 
 def bash_profile
+  def home
+    ENV['HOME']
+  end
+
   File.join(home, '.bash_profile')
 end
 
-dep 'curl_configuration' do
+dep('curl_configuration') {
   def config_file
     '~/.curlrc'
   end
@@ -20,8 +17,8 @@ dep 'curl_configuration' do
   meet {
     render_erb '../../../configs/curlrc.erb', :to => config_file
   }
-end
+}
 
-dep 'curl-osx' do
+dep('curl-osx') {
   requires 'curl_configuration'
-end
+}

@@ -7,5 +7,7 @@ dep 'work' do
               spotify-osx privacy-osx
               shell-osx arq-osx
               bluetooth-osx
+              itunes
+              terminal
               )
 end

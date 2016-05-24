@@ -1,4 +1,3 @@
-dep 'shell-osx' do
-  requires 'curl-osx',
-           'bash-osx'
-end
+dep('shell-osx') {
+  requires %w(curl-osx bash-osx)
+}
