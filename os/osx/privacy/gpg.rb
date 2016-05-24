@@ -33,8 +33,18 @@ dep 'gpg_configuration' do
   }
 end
 
+dep 'install_keyservers_ca_certificate' do
+  met? {
+      '/etc/sks-keyservers.netCA.pem'.p.exists?
+  }
+  meet {
+    shell('curl -O https://sks-keyservers.net/sks-keyservers.netCA.pem && sudo mv sks-keyservers.netCA.pem /etc')
+  }
+end
+
 dep 'gpg-osx' do
   requires 'GPG.installer',
-           'gpg_directory'
+           'gpg_directory',
+           'install_keyservers_ca_certificate'
            # 'gpg_configuration'
 end
