@@ -1,4 +1,5 @@
 dep 'keybase.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'keybase'
 end
 

@@ -1,4 +1,5 @@
 dep 'python.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'python'
 end
 

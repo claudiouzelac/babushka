@@ -1,4 +1,5 @@
 dep 'dmd.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'dmd'
 end
 

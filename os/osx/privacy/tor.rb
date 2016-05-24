@@ -1,4 +1,5 @@
 dep 'tor.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'tor'
 end
 

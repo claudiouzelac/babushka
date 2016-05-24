@@ -1,4 +1,5 @@
 dep 'git.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'git'
 end
 

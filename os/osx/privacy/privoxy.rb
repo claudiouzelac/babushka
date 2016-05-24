@@ -1,4 +1,5 @@
 dep 'privoxy' do
+  requires { on :osx, 'homebrew' }
   met? {
     '/usr/local/Cellar/privoxy'.p.exists?
   }

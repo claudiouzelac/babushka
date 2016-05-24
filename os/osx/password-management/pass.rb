@@ -1,6 +1,7 @@
 # https://www.passwordstore.org/
 
 dep 'pass.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'pass'
 end
 

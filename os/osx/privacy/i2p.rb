@@ -1,4 +1,5 @@
 dep 'i2p.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'i2p'
 end
 

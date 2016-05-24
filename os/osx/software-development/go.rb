@@ -1,4 +1,5 @@
 dep 'go.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'go'
 end
 

@@ -1,4 +1,5 @@
 dep 'blueutil.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'blueutil'
 end
 

@@ -8,14 +8,17 @@ dep 'java8' do
 end
 
 dep 'scala.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'scala'
 end
 
 dep 'akka.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'akka'
 end
 
 dep 'tomcat.managed' do
+  requires { on :osx, 'homebrew' }
   installs 'tomcat'
 end
 
