@@ -1,4 +1,4 @@
-dep 'shenderson-work' do
+dep 'work' do
   requires %w(
               environment-osx
               system-osx

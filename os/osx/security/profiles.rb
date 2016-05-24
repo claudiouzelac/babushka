@@ -23,7 +23,7 @@ dep 'suppress_diagnostic_info' do
     Babushka::Renderable.new(diagnostic_info).from?('~/.babushka/deps/osx-profiles/suppress_diagnostic_info.mobileconfig.erb')
   }
   meet {
-    render_erb '../../../osx-profiles/suppress_diagnostic_info.mobileconfig.erb', :to => diagnostic_info
+    render_erb '../../../profiles/os/osx/osx-profiles/suppress_diagnostic_info.mobileconfig.erb', :to => diagnostic_info
     shell("sudo /usr/bin/profiles -IF #{diagnostic_info}")
   }
 end
@@ -39,7 +39,7 @@ dep 'cant_disable_filevault' do
     Babushka::Renderable.new(diagnostic_info).from?('~/.babushka/deps/osx-profiles/cant_disable_filevault.mobileconfig.erb')
   }
   meet {
-    render_erb '../../../osx-profiles/cant_disable_filevault.mobileconfig.erb', :to => diagnostic_info
+    render_erb '../../../profiles/os/osx/osx-profiles/cant_disable_filevault.mobileconfig.erb', :to => diagnostic_info
     shell("sudo /usr/bin/profiles -IF #{diagnostic_info}")
   }
   end

@@ -20,10 +20,25 @@ dep 'ssh_configuration' do
   end
 
   met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/ssh_config.erb')
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/ssh/ssh_config.erb')
   }
   meet {
-    render_erb '../../../configs/ssh_config.erb', :to => config_file
+    render_erb '../../../configs/ssh/ssh_config.erb', :to => config_file
+  }
+end
+
+dep 'known_hosts' do
+  requires 'ssh_directory'
+
+  def config_file
+    '~/.ssh/known_hosts'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/configs/ssh/known_hosts.erb')
+  }
+  meet {
+    render_erb '../../../configs/ssh/known_hosts.erb', :to => config_file
   }
 end
 
@@ -47,7 +62,8 @@ end
 
 dep 'ssh-osx' do
   requires 'ssh_directory',
-           'ssh_configuration'
+           'ssh_configuration',
+           'known_hosts'
            # 'generate_key'.with(:key => 'channeliq-bitbucket', :passphrase => ENV['WORK_PASSPHRASE']),
            # 'generate_key'.with(:key => 'personal-bitbucket', :passphrase => ENV['BITBUCKET_PASSPHRASE']),
            # 'generate_key'.with(:key => 'personal-github', :passphrase =>  ENV['GITHUB_PASSPHRASE'])

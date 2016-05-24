@@ -23,7 +23,7 @@ dep 'seatbelt_admium_profile' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/adium.sb.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/adium.sb.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/adium.sb.erb', :to => seatbelt
   }
 end
 
@@ -38,7 +38,7 @@ dep 'seatbelt_admium_script' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/adium.sh.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/adium.sh.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/adium.sh.erb', :to => seatbelt
     shell("chmod +x #{seatbelt}")
   }
 end
@@ -54,7 +54,7 @@ dep 'seatbelt_firefox_profile' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/firefox.sb.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/firefox.sb.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/firefox.sb.erb', :to => seatbelt
   }
 end
 
@@ -69,7 +69,7 @@ dep 'seatbelt_firefox_script' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/firefox.sh.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/firefox.sh.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/firefox.sh.erb', :to => seatbelt
     shell("chmod +x #{seatbelt}")
   }
 end
@@ -85,7 +85,7 @@ dep 'seatbelt_safari_profile' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/safari.sb.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/safari.sb.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/safari.sb.erb', :to => seatbelt
   }
 end
 
@@ -100,7 +100,7 @@ dep 'seatbelt_safari_script' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/safari.sh.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/safari.sh.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/safari.sh.erb', :to => seatbelt
     shell("chmod +x #{seatbelt}")
   }
   end
@@ -116,7 +116,7 @@ dep 'seatbelt_bash_profile' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/bash.sb.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/bash.sb.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/bash.sb.erb', :to => seatbelt
   }
 end
 
@@ -131,7 +131,7 @@ dep 'seatbelt_bash_script' do
     Babushka::Renderable.new(seatbelt).from?('~/.babushka/deps/seatbelt-profiles/bash.sh.erb')
   }
   meet {
-    render_erb '../../../seatbelt-profiles/bash.sh.erb', :to => seatbelt
+    render_erb '../../../profiles/os/osx/seatbelt-profiles/bash.sh.erb', :to => seatbelt
     shell("chmod +x #{seatbelt}")
   }
 end
